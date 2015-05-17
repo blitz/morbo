@@ -50,6 +50,7 @@ stand = fenv.StaticLibrary('stand',
                              'start.asm',
                              'util.c',
                              'version.c',
+                             'realmode.asm',
 
                              # libc stuff
                              'memcpy.c',
