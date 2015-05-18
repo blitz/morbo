@@ -7,3 +7,6 @@
 /basicperf
 /irqshadow
 /printtsc
+/hermes
+/hermes_int
+/hermes_rm

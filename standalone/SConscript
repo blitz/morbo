@@ -126,4 +126,17 @@ DoInstall(fenv.Program('basicperf',
                        [ 'basicperf.c' ],
                        LIBS=['stand']))
 
+# Hermes
+
+hermes_int_bin = fenv.Command("hermes_int", "hermes_int.asm", "$AS $SOURCE -o $TARGET")
+hermes_int_o = fenv.Command("hermes_int.o", hermes_int_bin, "objcopy -B i386  -I binary -O elf32-i386 $SOURCE $TARGET")
+
+hermes_rm_bin = fenv.Command("hermes_rm", "hermes_rm.asm", "$AS $SOURCE -o $TARGET")
+hermes_rm_o = fenv.Command("hermes_rm.o", hermes_rm_bin, "objcopy -B i386  -I binary -O elf32-i386 $SOURCE $TARGET")
+
+
+DoInstall(fenv.Program('hermes',
+                       [ 'hermes.c', hermes_int_o, hermes_rm_o ],
+                       LIBS=[ 'stand' ]))
+
 # EOF
