@@ -26,11 +26,13 @@ struct bios_data_area {
   uint16_t com_port[4];
   uint16_t lpt_port[4];
   uint16_t equipment;
+  uint8_t  int_test;
+  uint16_t low_memory;
 
   /* XXX This struct is incomplete. See
      http://www.bioscentral.com/misc/bda.htm for a complete
      description. */
-};
+} __attribute__((packed));
 
 static inline unsigned
 serial_ports(struct bios_data_area *bda)
